@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://instacatch.vercel.app";
+  const base = siteConfig.url;
 
   return [
     { url: `${base}/`, priority: 1, changeFrequency: "daily" },
