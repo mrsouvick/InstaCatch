@@ -11,19 +11,38 @@
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100;
+  @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100;
 }
 
 .hero-bg {
   background:
-    radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.4), transparent 42%),
-    radial-gradient(circle at 85% 20%, rgba(45, 212, 191, 0.25), transparent 40%),
-    linear-gradient(145deg, #0f172a 15%, #111827 60%, #082f49 100%);
+    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.26), transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.26), transparent 38%),
+    radial-gradient(circle at 50% 95%, rgba(34, 211, 238, 0.18), transparent 40%),
+    linear-gradient(145deg, #020617 8%, #0f172a 48%, #082f49 100%);
 }
 
 .light-hero-bg {
   background:
-    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.18), transparent 45%),
-    radial-gradient(circle at 85% 10%, rgba(20, 184, 166, 0.16), transparent 45%),
-    linear-gradient(145deg, #f8fafc 20%, #e2e8f0 60%, #ecfeff 100%);
+    radial-gradient(circle at 8% 12%, rgba(14, 165, 233, 0.2), transparent 38%),
+    radial-gradient(circle at 90% 6%, rgba(16, 185, 129, 0.2), transparent 38%),
+    radial-gradient(circle at 48% 100%, rgba(56, 189, 248, 0.16), transparent 50%),
+    linear-gradient(145deg, #f8fafc 12%, #e2e8f0 52%, #f0fdfa 100%);
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.dark .grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+}
+
+.surface-card {
+  @apply rounded-3xl border border-white/40 bg-white/80 shadow-xl backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/80;
 }

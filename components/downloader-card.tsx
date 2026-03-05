@@ -46,17 +46,24 @@ export function DownloaderCard() {
 
   return (
     <div className="mx-auto w-full max-w-4xl animate-float">
-      <div className="rounded-3xl border border-white/20 bg-white/85 p-4 shadow-xl backdrop-blur-xl sm:p-7 dark:border-slate-700/50 dark:bg-slate-900/80">
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+      <div className="surface-card p-4 sm:p-7">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+          Paste Instagram URL
+        </p>
+        <form onSubmit={handleSubmit} className="grid gap-3 sm:grid-cols-[1fr_auto_auto]">
+          <label className="sr-only" htmlFor="instagram-url">
+            Instagram URL
+          </label>
           <input
+            id="instagram-url"
             type="url"
             required
             value={url}
             onChange={(event) => setUrl(event.target.value)}
-            placeholder="Paste Instagram post, reel, or story URL..."
-            className="h-12 flex-1 rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-700 outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:ring-brand-900/40"
+            placeholder="https://www.instagram.com/reel/..."
+            className="h-12 w-full rounded-xl border border-slate-300/90 bg-white px-4 text-sm text-slate-700 outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:ring-brand-900/40"
           />
-          <div className="flex gap-2">
+          <div className="grid grid-cols-2 gap-2 sm:flex">
             <button
               type="submit"
               disabled={loading}

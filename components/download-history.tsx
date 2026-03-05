@@ -31,23 +31,26 @@ export function DownloadHistory() {
   if (!items.length) return null;
 
   return (
-    <section className="mt-8 rounded-2xl border border-slate-200/70 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-      <h2 className="mb-4 text-sm font-semibold text-slate-800 dark:text-slate-100">
+    <section className="surface-card mt-8 p-5">
+      <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-800 dark:text-slate-100">
         Recent Downloads
       </h2>
       <ul className="space-y-3">
         {items.map((item) => (
-          <li key={`${item.url}-${item.createdAt}`} className="text-sm">
+          <li
+            key={`${item.url}-${item.createdAt}`}
+            className="rounded-xl border border-slate-200/70 bg-white/70 p-3 dark:border-slate-800 dark:bg-slate-950/40"
+          >
             <a
               href={item.url}
               target="_blank"
               rel="noreferrer"
-              className="line-clamp-1 text-brand-600 hover:underline dark:text-brand-300"
+              className="line-clamp-1 text-sm font-medium text-brand-700 hover:underline dark:text-brand-300"
             >
               {item.url}
             </a>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              {item.sourceType} • {new Date(item.createdAt).toLocaleString()}
+            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+              {item.sourceType} | {new Date(item.createdAt).toLocaleString()}
             </p>
           </li>
         ))}
@@ -55,3 +58,4 @@ export function DownloadHistory() {
     </section>
   );
 }
+
