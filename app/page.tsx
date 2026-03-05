@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { DownloaderCard } from "@/components/downloader-card";
+import { FaqSection } from "@/components/faq-section";
+import { InnovationSections } from "@/components/innovation-sections";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -51,26 +53,28 @@ export default function HomePage() {
 
           <div className="mx-auto mt-10 grid max-w-5xl gap-3 text-center sm:grid-cols-3">
             <div className="surface-card px-4 py-5">
-              <p className="text-xl font-bold text-slate-900 dark:text-white">HD</p>
+              <p className="text-xl font-bold text-slate-900 dark:text-white">HD+</p>
               <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
                 High quality downloads
               </p>
             </div>
             <div className="surface-card px-4 py-5">
-              <p className="text-xl font-bold text-slate-900 dark:text-white">3 Types</p>
+              <p className="text-xl font-bold text-slate-900 dark:text-white">Studio</p>
               <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-                Posts, reels, and stories
+                Single and batch mode
               </p>
             </div>
             <div className="surface-card px-4 py-5">
-              <p className="text-xl font-bold text-slate-900 dark:text-white">Mobile</p>
+              <p className="text-xl font-bold text-slate-900 dark:text-white">Smart</p>
               <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-                Fully responsive design
+                URL intelligence insights
               </p>
             </div>
           </div>
         </div>
       </section>
+      <InnovationSections />
+      <FaqSection />
     </main>
   );
 }

@@ -19,3 +19,8 @@ export function detectInstagramType(
   if (url.includes("/stories/")) return "story";
   return "unknown";
 }
+
+export function extractInstagramIdentifier(url: string): string | null {
+  const match = url.match(/instagram\.com\/(?:reel|p|stories\/[^/]+)\/([^/?#]+)/i);
+  return match?.[1] ?? null;
+}
