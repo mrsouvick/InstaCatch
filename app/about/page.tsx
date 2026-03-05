@@ -20,6 +20,8 @@ export default function AboutPage() {
         Our focus is speed, privacy, and ease of use. No account is required to
         use the downloader.
       </p>
+      <h2>By Souvick Kumar Halder</h2>
+      <p>reach.souvick@gmail.com</p>
     </main>
   );
 }
