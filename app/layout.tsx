@@ -35,7 +35,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "InstaCatch",
-    description: "Paste an Instagram link and download posts, reels, or stories instantly.",
+    description:
+      "Paste an Instagram link and download posts, reels, or stories instantly.",
     type: "website",
     url: siteConfig.url,
     siteName: "InstaCatch",
@@ -61,25 +62,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <body>
+        {/* Google AdSense Script */}
         <Script
           id="adsense-script"
-          async
           strategy="afterInteractive"
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1707515979755318"
           crossOrigin="anonymous"
         />
-      </head>
-      <body>
+
         <ThemeProvider>
-          <div className="min-h-screen">
+          <div className="min-h-screen flex flex-col">
             <Navbar />
-            {children}
+            <main className="flex-grow">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
