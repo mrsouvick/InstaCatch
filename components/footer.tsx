@@ -6,6 +6,9 @@ export function Footer() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 dark:text-slate-400">
         <p>Copyright {new Date().getFullYear()} InstaCatch. All rights reserved.</p>
         <div className="flex items-center gap-4">
+          <Link href="/blog" className="hover:text-brand-500">
+            Blog
+          </Link>
           <Link href="/about" className="hover:text-brand-500">
             About
           </Link>
@@ -20,4 +23,3 @@ export function Footer() {
     </footer>
   );
 }
-

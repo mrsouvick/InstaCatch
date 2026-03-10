@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description: "Learn more about InstaCatch and how it works.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

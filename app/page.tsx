@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { DownloaderCard } from "@/components/downloader-card";
 import { FaqSection } from "@/components/faq-section";
 import { InnovationSections } from "@/components/innovation-sections";
+import { getAllBlogPosts } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Instagram Downloader",
   description:
     "InstaCatch helps you download Instagram posts, reels, and stories in HD quality.",
+  keywords: [
+    "Instagram downloader",
+    "Instagram reels downloader",
+    "Instagram story downloader",
+    "download Instagram video",
+  ],
   alternates: {
     canonical: "/",
   },
 };
 
 export default function HomePage() {
+  const posts = getAllBlogPosts().slice(0, 3);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -24,11 +34,54 @@ export default function HomePage() {
     description: siteConfig.description,
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Can I download reels, posts, and stories?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. InstaCatch supports all three formats as long as the Instagram content is publicly accessible.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Why do some links fail?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Private, deleted, expired, or geo-restricted media can fail due to platform restrictions.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I download multiple URLs at once?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Use Batch mode in InstaCatch Studio and paste one URL per line for sequential processing.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you store my downloads?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No server-side media storage is used. Optional download history is stored in your browser only.",
+        },
+      },
+    ],
+  };
+
   return (
     <main className="relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <section className="light-hero-bg relative px-4 py-16 sm:px-6 sm:py-24 dark:hero-bg">
         <div className="grid-overlay absolute inset-0 opacity-50" aria-hidden="true" />
@@ -74,6 +127,32 @@ export default function HomePage() {
         </div>
       </section>
       <InnovationSections />
+      <section className="px-4 pb-10 sm:px-6">
+        <div className="mx-auto w-full max-w-4xl">
+          <div className="surface-card p-6 sm:p-8">
+            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl dark:text-white">
+              Latest Guides
+            </h2>
+            <div className="mt-6 grid gap-3">
+              {posts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="rounded-2xl border border-slate-200/80 bg-white/70 px-4 py-3 text-sm text-slate-700 transition hover:border-brand-300 hover:text-brand-700 dark:border-slate-800 dark:bg-slate-950/30 dark:text-slate-200 dark:hover:border-brand-500 dark:hover:text-brand-300"
+                >
+                  {post.title}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/blog"
+              className="mt-5 inline-block text-sm font-semibold text-brand-700 hover:text-brand-600 dark:text-brand-300 dark:hover:text-brand-200"
+            >
+              Read all blog posts
+            </Link>
+          </div>
+        </div>
+      </section>
       <FaqSection />
     </main>
   );

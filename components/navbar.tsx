@@ -8,6 +8,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
+    { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
     { href: "/privacy", label: "Privacy" },
     { href: "/terms", label: "Terms" },

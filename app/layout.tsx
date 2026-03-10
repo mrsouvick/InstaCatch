@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  category: "technology",
+  applicationName: "InstaCatch",
+  referrer: "origin-when-cross-origin",
+  creator: "Souvick Kumar Halder",
+  publisher: "InstaCatch",
   robots: {
     index: true,
     follow: true,
@@ -65,6 +70,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "InstaCatch",
+    url: siteConfig.url,
+    description: siteConfig.description,
+  };
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "InstaCatch",
+    url: siteConfig.url,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "reach.souvick@gmail.com",
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -93,6 +118,17 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+
         {/* Google AdSense Script */}
         <Script
           id="adsense-script"
@@ -105,7 +141,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <div className="flex-grow">{children}</div>
             <Footer />
           </div>
         </ThemeProvider>
