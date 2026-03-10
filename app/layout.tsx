@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+    shortcut: ["/favicon.png"],
+  },
   category: "technology",
   applicationName: "InstaCatch",
   referrer: "origin-when-cross-origin",
