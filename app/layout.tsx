@@ -67,6 +67,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          id="adsterra-script"
+          strategy="beforeInteractive"
+          src="https://pl28885059.effectivegatecpm.com/6c/bf/44/6cbf4415d450572c63a6443ccd7b2d29.js"
+        />
+      </head>
       <body>
         {/* Google AdSense Script */}
         <Script
