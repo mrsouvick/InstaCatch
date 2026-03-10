@@ -73,6 +73,24 @@ export default function RootLayout({
           strategy="beforeInteractive"
           src="https://pl28885059.effectivegatecpm.com/6c/bf/44/6cbf4415d450572c63a6443ccd7b2d29.js"
         />
+        <Script
+          id="adsterra-atoptions"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `atOptions = {
+  'key' : '6bed560f8a8c2d53dec3742515d95b92',
+  'format' : 'iframe',
+  'height' : 60,
+  'width' : 468,
+  'params' : {}
+};`,
+          }}
+        />
+        <Script
+          id="adsterra-invoke"
+          strategy="beforeInteractive"
+          src="https://www.highperformanceformat.com/6bed560f8a8c2d53dec3742515d95b92/invoke.js"
+        />
       </head>
       <body>
         {/* Google AdSense Script */}
